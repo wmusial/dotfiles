@@ -42,6 +42,7 @@ set noswapfile
 hi Search cterm=NONE ctermbg=LightRed
 hi StatusLine cterm=NONE ctermbg=DarkBlue ctermfg=White
 hi LineNr cterm=NONE ctermbg=None ctermfg=Magenta
+hi Todo cterm=NONE ctermbg=None ctermbg=DarkBlue ctermfg=White
 
 " -- python syntax hl fix --
 let python_version_2 = 1
