@@ -58,3 +58,22 @@ endif
 
 " -- OSX system copy in visual mode --
 vmap <C-c> "+y
+
+" -- LaTeX -- 
+function LatexTypeset ()
+  :w
+  let curr = @%
+  let latexoutput=system("source ~/dotfiles/scripts/latex-typeset.sh ".curr)
+  echo latexoutput
+endfunction
+
+function LatexPreprocess() 
+  :w
+  let curr = @%
+  let latexoutput=system("source ~/dotfiles/scripts/latex-preprocess.sh ".curr)
+  echo latexoutput
+endfunction
+
+command T call LatexTypeset()
+command TT call LatexPreprocess()
+
