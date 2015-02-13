@@ -1,6 +1,7 @@
 " -- pathogen setup -- 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
@@ -89,3 +90,7 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP ~/'
