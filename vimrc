@@ -96,3 +96,7 @@ noremap   <Right>  <NOP>
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP ~/'
+let g:ctrlp_follow_symlinks = 1
+
+" sudo write
+cmap w!! w !sudo tee > /dev/null %
