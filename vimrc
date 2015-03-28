@@ -44,6 +44,8 @@ hi Search cterm=NONE ctermbg=LightRed
 hi StatusLine cterm=NONE ctermbg=DarkBlue ctermfg=White
 hi LineNr cterm=NONE ctermbg=None ctermfg=Magenta
 hi Todo cterm=NONE ctermbg=None ctermbg=DarkBlue ctermfg=White
+hi CursorLine   cterm=NONE ctermbg=lightgray
+set cursorline
 
 " -- python syntax hl fix --
 let python_version_2 = 1
@@ -94,3 +96,7 @@ noremap   <Right>  <NOP>
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP ~/'
+let g:ctrlp_follow_symlinks = 1
+
+" sudo write
+cmap w!! w !sudo tee > /dev/null %
