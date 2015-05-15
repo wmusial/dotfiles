@@ -12,3 +12,4 @@ alias ssh="ssh -X"
 alias ..="cd .."
 
 alias dope='python ~/dope/dope.py'
+alias pygrep='grep --include="*.py" -R'
