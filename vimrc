@@ -100,3 +100,8 @@ let g:ctrlp_follow_symlinks = 1
 
 " sudo write
 cmap w!! w !sudo tee > /dev/null %
+
+" flake 8
+let g:flake8_show_in_file=1
+highlight link Flake8_Warning Search
+highlight link Flake8_Error Search
