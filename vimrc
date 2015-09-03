@@ -47,6 +47,7 @@ hi Todo cterm=NONE ctermbg=None ctermbg=DarkBlue ctermfg=White
 hi CursorLine   cterm=NONE ctermbg=lightgray
 hi Pmenu ctermbg=LightGray ctermfg=None
 hi PmenuSel ctermbg=LightGray ctermfg=DarkBlue
+hi MatchParen cterm=bold ctermbg=white ctermfg=red
 set cursorline
 
 " -- python syntax hl fix --
