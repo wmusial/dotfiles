@@ -87,14 +87,6 @@ command TT call LatexPreprocess()
 inoremap jj <ESC>
 
 " disable arrow keys
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
 
 " enable jk in popup menus
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
@@ -112,3 +104,8 @@ cmap w!! w !sudo tee > /dev/null %
 let g:flake8_show_in_file=1
 highlight link Flake8_Warning Search
 highlight link Flake8_Error Search
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
