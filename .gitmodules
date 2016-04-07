@@ -34,3 +34,9 @@
 [submodule "vim/bundle/Nvim-R"]
 	path = vim/bundle/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R.git
+[submodule "vim/nerdcommenter"]
+	path = vim/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/plugin/nerdcommenter"]
+	path = vim/plugin/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
