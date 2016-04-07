@@ -14,8 +14,8 @@ map <C-T> :Tab /=<CR>  " Ctrl+T aligns to equal sign
 " ---- vim ----
 " -- tabs -- 
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set cindent
 set autoindent
 
@@ -109,3 +109,6 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
+
+let mapleader=','
+let NERDSpaceDelims=1
