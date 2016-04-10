@@ -112,3 +112,6 @@ nnoremap <c-l> <c-w>l
 
 let mapleader=','
 let NERDSpaceDelims=1
+
+" vim-pbcopy
+let g:vim_pbcopy_cmd='cat > /dev/tcp/8733'
