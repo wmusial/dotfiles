@@ -114,4 +114,5 @@ let mapleader=','
 let NERDSpaceDelims=1
 
 " vim-pbcopy
-let g:vim_pbcopy_cmd='cat > /dev/tcp/8733'
+let g:vim_pbcopy_local_cmd='cat > /dev/tcp/8733'
+let g:vim_pbcopy_remote_cmd='cat > /dev/tcp/8733'
