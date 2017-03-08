@@ -19,6 +19,8 @@ set shiftwidth=2
 set cindent
 set autoindent
 
+set nowrap
+
 " -- general --
 set number            " show line numbers
 set ruler             " show text coordinates on the status line
@@ -56,6 +58,9 @@ let python_highlight_builtin_funcs = 1
 let python_highlight_builtin_objs = 1
 let python_highlight_exceptions = 1
 
+" -- R syntax -- 
+autocmd BufNewFile,BufRead *.Rscript   set syntax=r
+
 " -- ignore white space in vimdiff --
 if &diff
   " diff mode
@@ -82,6 +87,7 @@ endfunction
 
 command T call LatexTypeset()
 command TT call LatexPreprocess()
+command C %!column -t
 
 " -- remaps --
 inoremap jj <ESC>
@@ -113,6 +119,15 @@ nnoremap <c-l> <c-w>l
 let mapleader=','
 let NERDSpaceDelims=1
 
-" vim-pbcopy
-let g:vim_pbcopy_local_cmd='cat > /dev/tcp/8733'
-let g:vim_pbcopy_remote_cmd='cat > /dev/tcp/8733'
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+set colorcolumn=80
+
+" disable autoincrement
+map <C-a> <Nop>
+
+" highlight extra task words in python
+syn keyword pythonTodo contained NB NOTE
+
+" Nvim-R
+let R_assign=2
+let R_assign_map="_"
