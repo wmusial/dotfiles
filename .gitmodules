@@ -19,9 +19,6 @@
 [submodule "vim/bundle/vim-flake8"]
 	path = vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule "vim/bundle/vim-argumentative"]
-	path = vim/bundle/vim-argumentative
-	url = https://github.com/PeterRincker/vim-argumentative.git
 [submodule "vim/bundle/Nvim-R"]
 	path = vim/bundle/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R.git
@@ -31,6 +28,6 @@
 [submodule "vim/bundle/vim-pbcopy"]
 	path = vim/bundle/vim-pbcopy
 	url = git@github.com:ahw/vim-pbcopy.git
-[submodule "vim-yaml"]
-	path = vim-yaml
+[submodule "vim/bundle/vim-yaml"]
+	path = vim/bundle/vim-yaml
 	url = git@github.com:stephpy/vim-yaml.git
