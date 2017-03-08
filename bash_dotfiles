@@ -29,6 +29,7 @@ fi
 
 # never hurts
 export CLICOLOR=1
+export SVN_EDITOR=vim
 
 # git 
 if [ -e ~/.git-prompt.sh ]; then
@@ -36,9 +37,11 @@ if [ -e ~/.git-prompt.sh ]; then
 fi
 if [ -e ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
+    export GIT_PS1_SHOWDIRTYSTATE=1
+    export PS1='\[\e[0;35m\][\D{%F %T}] \[\e[0;36m\]\u\[\e[0;0m\]@\[\033[00m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
+else
+    export PS1='\[\e[0;35m\][\D{%F %T}] \[\e[0;36m\]\u\[\e[0;0m\]@\[\033[00m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$\$ '
 fi
-export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1='\[\e[0;36m\]\u\[\e[0;0m\]@\[\033[00m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
 
 # python
 export PYTHONSTARTUP=~/.pythonrc.py
