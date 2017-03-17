@@ -138,4 +138,4 @@ let R_assign_map="_"
 
 " pbcopy
 "let g:vim_pbcopy_local_cmd='cat > /dev/tcp/8733'
-let g:vim_pbcopy_remote_cmd='cat > /dev/tcp/8733'
+let g:vim_pbcopy_remote_cmd='cat > /dev/tcp/localhost/8377'
