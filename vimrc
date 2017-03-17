@@ -135,3 +135,7 @@ syn keyword pythonTodo contained NB NOTE
 " Nvim-R
 let R_assign=2
 let R_assign_map="_"
+
+" pbcopy
+"let g:vim_pbcopy_local_cmd='cat > /dev/tcp/8733'
+let g:vim_pbcopy_remote_cmd='cat > /dev/tcp/8733'
