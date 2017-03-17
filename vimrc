@@ -111,6 +111,10 @@ let g:flake8_show_in_file=1
 highlight link Flake8_Warning Search
 highlight link Flake8_Error Search
 
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
