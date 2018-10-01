@@ -1,3 +1,7 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy.sparse as sparse
+import imp
+
+try:
+  imp.find_module('numpy')
+  import numpy as np
+except ImportError:
+  pass
