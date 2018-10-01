@@ -44,12 +44,18 @@ set noswapfile
 " -- color adjustments for solarized --
 hi Search cterm=NONE ctermbg=LightRed
 hi StatusLine cterm=NONE ctermbg=DarkBlue ctermfg=White
+hi StatusLineNC cterm=NONE ctermbg=Cyan ctermfg=White
 hi LineNr cterm=NONE ctermbg=None ctermfg=Magenta
 hi Todo cterm=NONE ctermbg=None ctermbg=DarkBlue ctermfg=White
 hi CursorLine   cterm=NONE ctermbg=lightgray
 hi Pmenu ctermbg=LightGray ctermfg=None
 hi PmenuSel ctermbg=LightGray ctermfg=DarkBlue
-hi MatchParen cterm=bold ctermbg=white ctermfg=red
+hi MatchParen cterm=bold ctermbg=LightRed ctermfg=red
+hi VertSplit ctermbg=DarkBlue ctermfg=White
+hi DiffChange cterm=None ctermbg=LightRed ctermfg=None
+hi DiffDelete cterm=None ctermbg=LightRed ctermfg=White
+hi DiffAdd cterm=None ctermbg=LightRed ctermfg=None
+hi DiffText cterm=bold ctermbg=White ctermfg=DarkRed
 set cursorline
 
 " -- python syntax hl fix --
@@ -66,28 +72,32 @@ if &diff
   " diff mode
   set diffopt+=iwhite 
 endif
+" -- always split diff windows vertically
+set diffopt+=vertical
 
 " -- OSX system copy in visual mode --
 vmap <C-c> "+y
 
 " -- LaTeX -- 
-function LatexTypeset ()
+function! LatexTypeset ()
   :w
   let curr = @%
   let latexoutput=system("source ~/dotfiles/scripts/latex-typeset.sh ".curr)
   echo latexoutput
 endfunction
 
-function LatexPreprocess() 
+function! LatexPreprocess() 
   :w
   let curr = @%
   let latexoutput=system("source ~/dotfiles/scripts/latex-preprocess.sh ".curr)
   echo latexoutput
 endfunction
 
-command T call LatexTypeset()
-command TT call LatexPreprocess()
-command C %!column -t
+command! T call LatexTypeset()
+command! TT call LatexPreprocess()
+command! C %!column -t
+command! W %s/ \+$//g
+
 
 " -- remaps --
 inoremap jj <ESC>
@@ -135,7 +145,30 @@ syn keyword pythonTodo contained NB NOTE
 " Nvim-R
 let R_assign=2
 let R_assign_map="_"
+let R_path="/software/R-3.3.1/bin"
+let R_in_buffer=1
 
 " pbcopy
 "let g:vim_pbcopy_local_cmd='cat > /dev/tcp/8733'
 let g:vim_pbcopy_remote_cmd='cat > /dev/tcp/localhost/8377'
+
+function! OpenManifest (path)
+  " convert to absolute path
+  let s:path = fnamemodify(a:path, ':p')
+  " check if we reached root
+  if s:path == "/"
+    echo "manifest.txt not found"
+    return
+  endif
+  " fname
+  let s:fname = s:path . "/manifest.txt"
+  if filereadable(s:fname)
+    execute "vs " . s:fname
+  else
+    call OpenManifest(fnamemodify(s:path, ":h:h"))
+  endif
+endfunction
+nnoremap <c-m> :call OpenManifest(".") <CR>
+
+" ignore whitespace when diffing
+set diffopt+=iwhite
