@@ -147,6 +147,7 @@ let R_assign=2
 let R_assign_map="_"
 let R_path="/software/R-3.3.1/bin"
 let R_in_buffer=1
+let r_indent_align_args = 0
 
 " pbcopy
 "let g:vim_pbcopy_local_cmd='cat > /dev/tcp/8733'
