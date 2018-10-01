@@ -1,1 +1,1 @@
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "wojciech.musial@gmail.com"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "voitek@voleon.com"

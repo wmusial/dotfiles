@@ -44,7 +44,7 @@ fext="${fname##*.}"
 
 echo "processing file $fdir/$fname"
 
-mkdir /tmp/latex
+mkdir -p /tmp/latex
 latexcmd="pdflatex -file-line-error -halt-on-error -output-directory=/tmp/latex -interaction nonstopmode $fdir/$fbase.tex"
 echo "> $latexcmd"
 output=$($latexcmd)

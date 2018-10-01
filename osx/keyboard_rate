@@ -1,5 +1,5 @@
 # minimum attainable in system preferences is 2
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # minimum attainable in system preferences is 15
 defaults write -g InitialKeyRepeat -int 10
