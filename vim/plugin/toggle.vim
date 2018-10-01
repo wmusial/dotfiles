@@ -209,6 +209,15 @@ function! Toggle() "{{{
         elseif (s:wordUnderCursor ==? "false")
             let s:wordUnderCursor_tmp = "true"
             let s:toggleDone = 1
+        elseif (s:wordUnderCursor ==? "t")
+            let s:wordUnderCursor_tmp = "f"
+            let s:toggleDone = 1
+        elseif (s:wordUnderCursor ==? "f")
+            let s:wordUnderCursor_tmp = "t"
+            let s:toggleDone = 1
+        elseif (s:wordUnderCursor ==? "false")
+            let s:wordUnderCursor_tmp = "true"
+            let s:toggleDone = 1
 
         elseif (s:wordUnderCursor ==? "on")
             let s:wordUnderCursor_tmp = "off"
