@@ -31,3 +31,9 @@
 [submodule "vim/bundle/vim-yaml"]
 	path = vim/bundle/vim-yaml
 	url = git@github.com:stephpy/vim-yaml.git
+[submodule "vim/bundle/table-mode"]
+	path = vim/bundle/table-mode
+	url = git@github.com:dhruvasagar/vim-table-mode.git
+[submodule "z"]
+	path = z
+	url = https://github.com/rupa/z.git
