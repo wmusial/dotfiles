@@ -5,6 +5,10 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+let skip_defaults_vim=1
+"set viminfo=""
+set viminfo="'100,<50,s10,h"
+
 " -- solarized --
 " looks like iTerm does *not* need vim-colors-solarized 
 
@@ -31,6 +35,12 @@ set hlsearch          " highlight search results
 set scrolloff=10      " pad screen by 10 lines
 set laststatus=2      " always show status line
 
+" -- do not jump to next match upon pressing *
+nnoremap * m`:keepjumps normal! *``<cr>
+
+" -- do not jump to a search result as the search query is being typed
+set noincsearch
+
 " -- backup --
 set nobackup
 set nowritebackup
@@ -39,7 +49,7 @@ set noswapfile
 " -- comment delimitation --
 :ab %%% %----------------------------------
 :ab /// //---------------------------------
-:ab ### #----------------------------------
+:ab ##### #----------------------------------
 
 " -- color adjustments for solarized --
 hi Search cterm=NONE ctermbg=LightRed
@@ -47,7 +57,7 @@ hi StatusLine cterm=NONE ctermbg=DarkBlue ctermfg=White
 hi StatusLineNC cterm=NONE ctermbg=Cyan ctermfg=White
 hi LineNr cterm=NONE ctermbg=None ctermfg=Magenta
 hi Todo cterm=NONE ctermbg=None ctermbg=DarkBlue ctermfg=White
-hi CursorLine   cterm=NONE ctermbg=lightgray
+hi CursorLine   cterm=underline ctermfg=None
 hi Pmenu ctermbg=LightGray ctermfg=None
 hi PmenuSel ctermbg=LightGray ctermfg=DarkBlue
 hi MatchParen cterm=bold ctermbg=LightRed ctermfg=red
@@ -56,6 +66,10 @@ hi DiffChange cterm=None ctermbg=LightRed ctermfg=None
 hi DiffDelete cterm=None ctermbg=LightRed ctermfg=White
 hi DiffAdd cterm=None ctermbg=LightRed ctermfg=None
 hi DiffText cterm=bold ctermbg=White ctermfg=DarkRed
+" markdown's bold uses htmlItalic
+hi htmlItalic cterm=None ctermbg=None ctermfg=DarkBlue
+" latex's emph uses texItalStyle
+hi texItalStyle cterm=None ctermbg=DarkBlue ctermfg=LightGray
 set cursorline
 
 " -- python syntax hl fix --
@@ -63,9 +77,11 @@ let python_version_2 = 1
 let python_highlight_builtin_funcs = 1
 let python_highlight_builtin_objs = 1
 let python_highlight_exceptions = 1
+au FileType python setlocal expandtab shiftwidth=2 tabstop=2
 
 " -- R syntax -- 
 autocmd BufNewFile,BufRead *.Rscript   set syntax=r
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 
 " -- ignore white space in vimdiff --
 if &diff
@@ -101,6 +117,8 @@ command! W %s/ \+$//g
 
 " -- remaps --
 inoremap jj <ESC>
+inoremap kk <ESC>
+inoremap <Tab> <C-x><C-f>
 
 " disable arrow keys
 
@@ -134,7 +152,7 @@ let mapleader=','
 let NERDSpaceDelims=1
 
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
-set colorcolumn=80
+set colorcolumn=100
 
 " disable autoincrement
 map <C-a> <Nop>
@@ -173,3 +191,8 @@ nnoremap <c-m> :call OpenManifest(".") <CR>
 
 " ignore whitespace when diffing
 set diffopt+=iwhite
+
+cmap nots %s/[0-9]\{4,4\}-[0-9]\{2,2\}-[0-9]\{2,2\} [0-9]\{2,2\}:[0-9]\{2,2\}:[0-9]\{2,2\}\( PST\| PDT\)\?//g
+set diffopt +=internal,algorithm:patience
+
+" let g:context_border_char = '-'
