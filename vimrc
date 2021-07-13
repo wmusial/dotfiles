@@ -7,7 +7,7 @@ filetype plugin indent on
 
 let skip_defaults_vim=1
 "set viminfo=""
-set viminfo="'100,<50,s10,h"
+"set viminfo="'100,<50,s10,h"
 
 " -- solarized --
 " looks like iTerm does *not* need vim-colors-solarized 
