@@ -86,13 +86,13 @@ autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 " -- ignore white space in vimdiff --
 if &diff
   " diff mode
-  set diffopt+=iwhite 
+  set diffopt+=iwhite
 endif
 " -- always split diff windows vertically
 set diffopt+=vertical
 
 " -- OSX system copy in visual mode --
-vmap <C-c> "+y
+"vmap <C-c> "+y
 
 " -- LaTeX -- 
 function! LatexTypeset ()
